@@ -5,7 +5,7 @@ all: builder jx realmode jxcore
 fast: BFILES
 	touch JC_CONFIG
 	@echo Compiling...
-	@cat BFILES | xargs javac -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P)
+	@cat BFILES | xargs javac -source 1.3 -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P)
 	build
 	@date
 
@@ -90,7 +90,7 @@ CV0P= $(subst $(SPACE),:,$(CV0))
 updatebuilder:
 	@rm -rf BFILES; touch BFILES
 	@echo Compiling...
-	javac -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P) edomains/compspec/jx/compspec/*.java libs/rpcgen/jx/rpcgen/*.java libs/compiler_env/jx/compiler/*.java libs/compiler_env/jx/compiler/vtable/*.java edomains/compiler/jx/compiler/*.java libs/compiler/jx/compiler/*/*.java
+	javac -source 1.3 -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P) edomains/compspec/jx/compspec/*.java libs/rpcgen/jx/rpcgen/*.java libs/compiler_env/jx/compiler/*.java libs/compiler_env/jx/compiler/vtable/*.java edomains/compiler/jx/compiler/*.java libs/compiler/jx/compiler/*/*.java
 
 BFILES:
 	@rm -rf BFILES; touch BFILES
@@ -110,7 +110,7 @@ builder:
 	    find edomains/$$i -name "*.java"  >> BFILES; \
 	done
 	@echo Compiling...
-	@cat BFILES | xargs javac -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P)
+	@cat BFILES | xargs javac -source 1.3 -d edomains/compspec/classes -classpath emulation:edomains/compspec/classes:$(CB0P)
 
 rpcgen:
 	@echo Removing old class files...
@@ -122,7 +122,7 @@ rpcgen:
 	    find edomains/$$i -name "*.java"  >> BFILES; \
 	done
 	@echo Compiling...
-	@cat BFILES | xargs javac -d edomains/rpcgen/classes -classpath emulation:edomains/rpcgen/classes:$(CR0P)
+	@cat BFILES | xargs javac -source 1.3 -d edomains/rpcgen/classes -classpath emulation:edomains/rpcgen/classes:$(CR0P)
 
 verifier:
 	@echo Removing old class files...
@@ -134,7 +134,7 @@ verifier:
 	    find edomains/$$i -name "*.java"  >> BFILES; \
 	done
 	@echo Compiling...
-	@cat BFILES | xargs javac -d edomains/verifier/classes -classpath emulation:edomains/verifier/classes:$(CV0P)
+	@cat BFILES | xargs javac -source 1.3 -d edomains/verifier/classes -classpath emulation:edomains/verifier/classes:$(CV0P)
 
 fd0:
 	mount /dev/fd0 /mnt2
