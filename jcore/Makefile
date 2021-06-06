@@ -76,8 +76,10 @@ CORECCFLAGS  = -g -w -X
 else
 #LINUXCCFLAGS = -g -Wall -fcall-used-ebx -fcall-used-esi -fcall-used-edi
 #CORECCFLAGS = -g -Wall -fcall-used-ebx -fcall-used-esi -fcall-used-edi -nostdinc
-LINUXCCFLAGS = -g -fcall-used-ebx -fcall-used-esi -fcall-used-edi
-CORECCFLAGS = -g -fcall-used-ebx -fcall-used-esi -fcall-used-edi -nostdinc
+##LINUXCCFLAGS = -g -fcall-used-ebx -fcall-used-esi -fcall-used-edi
+##CORECCFLAGS = -g -fcall-used-ebx -fcall-used-esi -fcall-used-edi -nostdinc
+LINUXCCFLAGS = -g 
+CORECCFLAGS = -g -nostdinc
 endif
 
 
